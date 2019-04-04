@@ -28,8 +28,33 @@ class Instructor extends Person {
     }
 }
 
+class Student extends Person {
+    constructor(StudentAttributes) {
+        super(StudentAttributes);
+        this.previousBackground = StudentAttributes.previousBackground;
+        this.className = StudentAttributes.className;
+        this.faveSubjects = StudentAttributes.faveSubjects;
+    }
 
+    listsSubjects() {
+        this.faveSubjects.forEach(function(subject){
+            console.log(`${subject}`);
+        });
+    }
 
+    PRAssignment(subject) {
+        return `${this.name} receives a perfect score on ${subject}`
+    }
 
+    sprintChallenge() {
+        return `${this.name} has begun a ${subject}`
+    }
 }
+
+
+
+
+
+
+
 
