@@ -78,18 +78,18 @@ class CharacterStats extends GameObject {
 * should inherit takeDamage() from CharacterStats
 */
 
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.team = humanoidOptions.team;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
-}
+// function Humanoid(humanoidOptions) {
+//   CharacterStats.call(this, humanoidOptions);
+//   this.team = humanoidOptions.team;
+//   this.weapons = humanoidOptions.weapons;
+//   this.language = humanoidOptions.language;
+// }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
+// Humanoid.prototype = Object.create(CharacterStats.prototype);
 
-Humanoid.prototype.greet = function () {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
+// Humanoid.prototype.greet = function () {
+//   return `${this.name} offers a greeting in ${this.language}.`;
+// };
 
 class Humanoid extends CharacterStats {
   constructor(humanoidOptions) {
@@ -98,19 +98,16 @@ class Humanoid extends CharacterStats {
     this.weapons = humanoidOptions.weapons;
     this.language = humanoidOptions.language;
   }
-  destroy() {
+  greet() {
     return `${this.name} offers a greeting in ${this.language}.`;
   }
 }
-
-
 
 /*
 * Inheritance chain: GameObject -> CharacterStats -> Humanoid
 * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
 * Instances of CharacterStats should have all of the same properties as GameObject.
 */
-
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
