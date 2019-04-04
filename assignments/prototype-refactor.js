@@ -36,9 +36,6 @@ class GameObject {
   }
 }
 
-
-
-
 /*
 === CharacterStats ===
 * healthPoints
@@ -47,17 +44,29 @@ class GameObject {
 * should inherit destroy() from GameObject's prototype
 */
 
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.healthPoints = characterStatsOptions.healthPoints;
+// function CharacterStats(characterStatsOptions) {
+//   GameObject.call(this, characterStatsOptions);
+//   this.healthPoints = characterStatsOptions.healthPoints;
+// }
+
+// // Sets up inheritance with GameObject
+// CharacterStats.prototype = Object.create(GameObject.prototype);
+
+// CharacterStats.prototype.takeDamage = function () {
+//   return `${this.name} took damage.`;
+// };
+
+class CharacterStats extends GameObject {
+  constructor(characterStatsOptions) {
+    super(characterStatsOptions)
+    this.healthPoints = characterStatsOptions.healthPoints;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;    
+  }
 }
 
-// Sets up inheritance with GameObject
-CharacterStats.prototype = Object.create(GameObject.prototype);
 
-CharacterStats.prototype.takeDamage = function () {
-  return `${this.name} took damage.`;
-};
 
 /*
 === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -68,6 +77,7 @@ CharacterStats.prototype.takeDamage = function () {
 * should inherit destroy() from GameObject through CharacterStats
 * should inherit takeDamage() from CharacterStats
 */
+
 function Humanoid(humanoidOptions) {
   CharacterStats.call(this, humanoidOptions);
   this.team = humanoidOptions.team;
@@ -80,6 +90,19 @@ Humanoid.prototype = Object.create(CharacterStats.prototype);
 Humanoid.prototype.greet = function () {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
+
+class Humanoid extends CharacterStats {
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+    this.team = humanoidOptions.team;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }
+  destroy() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
 
 
 /*
