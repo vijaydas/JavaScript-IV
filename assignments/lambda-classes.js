@@ -21,10 +21,10 @@ class Instructor extends Person {
   }
 
   demo(subject) {
-    return `Today we are learning about ${this.subject}.`;
+    return `Today we are learning about ${subject}.`;
   }
   grade(student, subject) {
-    return `${this.student} receives a perfect score on ${this.subject}`;
+    return `${student} receives a perfect score on ${subject}.`;
   }
 }
 
@@ -33,11 +33,11 @@ class Student extends Person {
     super(StudentAttributes);
     this.previousBackground = StudentAttributes.previousBackground;
     this.className = StudentAttributes.className;
-    this.faveSubjects = StudentAttributes.faveSubjects;
+    this.favSubjects = StudentAttributes.favSubjects;
   }
 
   listsSubjects() {
-    this.faveSubjects.forEach(function(subject) {
+    this.favSubjects.forEach(function(subject) {
       console.log(`${subject}`);
     });
   }
@@ -60,7 +60,7 @@ class ProjectManager extends Instructor {
   }
 
   debugsCode(student, subject) {
-    return `${this.name} debugs ${student.name}'s code on ${subject}.`;
+    return `${this.name} debugs ${student}'s code on ${subject}.`;
   }
 
   standup(channel) {
@@ -101,7 +101,93 @@ const gazoo = new Instructor({
     catchPhrase: `Stupid humans`
   });
 
+// make some data:
+// students:
+
+const albert = new Student({
+    name: 'Einstein',
+    location: 'Princeton',
+    age: 52,
+    gender: 'male',
+    previousBackground: 'patent reviewer',
+    className: 'web2015',
+    favSubjects: ['unified theories', 'combs', 'sweaters'],
+  
+  });
+
+  const neils = new Student({
+    name: 'Bohr',
+    location: 'Princeton',
+    age: 53,
+    gender: 'male',
+    previousBackground: 'car mechanic',
+    className: 'web2',
+    favSubjects: ['America', 'Germany', 'dogs'],
+    });
+ 
+  const  robert = new Student({
+    name: 'Oppenheimer',
+    location: 'Arizona',
+    age: 54,
+    gender: 'male',
+    previousBackground: 'patent reviewer',
+    className: 'web2015',
+    favSubjects: ['world peace', 'REACT(ors)', 'baghvad gita'],
+    });
+
+// make some data:
+// project managers:
+
+const martin = new ProjectManager({
+    name: 'Scorcese',
+    location: 'New York',
+    age: 64,
+    gender: 'male',
+    gradClassName: 'Data34',
+    favInstructor: 'Ford',
+  
+  });
+
+  const woody = new ProjectManager({
+    name: 'Allen',
+    location: 'New York',
+    age: 53,
+    gender: 'male',
+    gradClassName: 'iOS75',
+    favInstructor: 'Rockefeller',
+    });
+ 
+  const  erica = new ProjectManager({
+    name: 'Shade',
+    location: 'Utah',
+    age: 54,
+    gender: 'female',
+    gradClassName: 'Med5',
+    favInstructor: 'Gupta',
+    });
+
 
 
 // testing
 console.log(fred);
+console.log(barney);
+console.log(gazoo);
+
+console.log(albert);
+console.log(neils);
+console.log(robert);
+
+console.log(martin);
+console.log(woody);
+console.log(erica);
+
+
+console.log(gazoo.demo('dental implants'));
+console.log(barney.grade("Albert", "finger painting"));
+
+console.log(neils.listsSubjects());
+console.log(albert.PRAssignment('punking'));
+
+console.log(martin.standup('web19-martin'));
+console.log((martin.debugsCode('albert', 'constructors')))
+
