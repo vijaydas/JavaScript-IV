@@ -67,3 +67,41 @@ class ProjectManager extends Instructor {
     return `${this.name} announces to ${channel}, @channel standup time!.`;
   }
 }
+
+// make some data:
+// instructors:
+
+const fred = new Instructor({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
+
+const barney = new Instructor({
+    name: 'Barney',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JQuarry',
+    specialty: 'Back-end',
+    catchPhrase: `What's for dinner?`
+  });
+
+const gazoo = new Instructor({
+    name: 'Gazoo',
+    location: 'Outer Space',
+    age: 33023,
+    gender: 'both',
+    favLanguage: 'Superstring',
+    specialty: 'Everything',
+    catchPhrase: `Stupid humans`
+  });
+
+
+
+// testing
+console.log(fred);
